@@ -1,0 +1,9 @@
+.btn-primary {
+    background-color: #0056b3; /* Azul más oscuro */
+    color: white; /* Texto blanco */
+  }
+  
+  .btn-primary:hover {
+    background-color: #004494; /* Un poco más oscuro al pasar el ratón */
+  }
+  

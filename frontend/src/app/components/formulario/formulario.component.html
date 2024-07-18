@@ -1,0 +1,29 @@
+<form>
+    <div class="form-group">
+        <h1 class="text-center text-primary">Facturas Gastos </h1>
+        <div class="form-group">
+            <label for="ruc" class="form-label">Ruc </label>
+            <input type="text" class="form-control" id="ruc" name="ruc" [(ngModel)]="ruc">
+        </div>
+        <div class="form-group">
+            <label for="valor" class="form-label">Valor de factura </label>
+            <input type="text" class="form-control" id="valor" name="valor" [(ngModel)]="valor">
+        </div>
+        <div class="form-group">
+            <label for="gasto" class="form-label">Gasto</label><br>
+            <select class="form-select" aria-label="gasto" name="gasto" [(ngModel)]="gasto"> 
+                <option selected>Escoja el tipo de gasto</option>
+                <option value="Salud">Salud</option>
+                <option value="Vivienda">Vivienda</option>
+                <option value="Educacion">Educación</option>
+                <option value="Ninguno">Ninguno</option>
+            </select>
+        </div>
+        <button type="button" class="btn btn-primary"(click)="onSubmit()">Agregar</button>
+    </div>
+    <div>
+        <p>RUC: {{ruc}}</p>
+        <p>VALOR: {{valor}}</p>
+        <p>TIPO GASTO: {{gasto}}</p>
+       </div>
+</form>

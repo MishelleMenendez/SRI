@@ -1,0 +1,44 @@
+<form>
+    <div class="form-group">
+        <label for="cedula">Número de cédula</label>
+        <input type="text" class="form-control" id="cedula" name="cedula" [(ngModel)]="cedula">
+    </div>
+    <div class="form-group">
+        <label for="sueldo">Sueldo anual</label>
+        <input type="number" class="form-control" id="sueldo" name="sueldo" [(ngModel)]="sueldo">
+    </div>
+    <label for="deducciones">Deducciones por gastos personales:</label>
+    <div class="form-group">
+        <label for="deducciones">Vivienda</label>
+        <input type="number" class="form-control" id="deducciones_vivienda" name="deducciones_vivienda" [(ngModel)]="deducciones_vivienda" (input)="validateDeduction('vivienda')">
+        <div *ngIf="deducciones_vivienda > 3809.65" class="text-danger">La deducción de vivienda no puede exceder $3809.65.</div>
+    </div>
+    <div class="form-group">
+        <label for="deducciones">Salud</label>
+        <input type="number" class="form-control" id="deducciones_salud" name="deducciones_salud" [(ngModel)]="deducciones_salud" (input)="validateDeduction('salud')">
+        <div *ngIf="deducciones_salud > 15238.60" class="text-danger">La deducción de salud no puede exceder $15238.60.</div>
+    </div>
+    <div class="form-group">
+        <label for="deducciones">Educación</label>
+        <input type="number" class="form-control" id="deducciones_educacion" name="deducciones_educacion" [(ngModel)]="deducciones_educacion" (input)="validateDeduction('educacion')">
+        <div *ngIf="deducciones_educacion > 3809.65" class="text-danger">La deducción de educación no puede exceder $3809.65.</div>
+    </div>
+    <div class="form-group">
+        <label for="deducciones">Vestimenta</label>
+        <input type="number" class="form-control" id="deducciones_vestimenta" name="deducciones_vestimenta" [(ngModel)]="deducciones_vestimenta" (input)="validateDeduction('vestimenta')">
+        <div *ngIf="deducciones_vestimenta > 3809.65" class="text-danger">La deducción de vestimenta no puede exceder $3809.65.</div>
+    </div>
+    <div class="form-group">
+        <label for="deducciones">Alimentación</label>
+        <input type="number" class="form-control" id="deducciones_alimentacion" name="deducciones_alimentacion" [(ngModel)]="deducciones_alimentacion" (input)="validateDeduction('alimentacion')">
+        <div *ngIf="deducciones_alimentacion > 3809.65" class="text-danger">La deducción de alimentación no puede exceder $3809.65.</div>
+    </div>
+    <div class="form-group">
+        <label for="total_deducciones">Total de Deducciones</label>
+        <input type="number" class="form-control" id="total_deducciones" name="total_deducciones" [value]="totalDeducciones()" readonly>
+        <div *ngIf="totalDeducciones() > 15238.60" class="text-danger">El total de deducciones no puede exceder $15238.60.</div>
+    </div>
+    <button type="button" class="btn btn-primary" (click)="onSubmit()">Calcular Impuesto</button>
+</form>
+<h3>Impuesto a la Renta Calculado</h3>
+<pre>{{ renta }}</pre>
